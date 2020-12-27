@@ -1,0 +1,193 @@
+#title, #title1 {
+  background-color: #6f9eaf;
+  color: #fff;
+}
+
+.container-fluid {
+  padding: 20px 10% 5px;
+}
+
+body {
+  font-family: "Montserrat";
+}
+
+h1 {
+  font-family: "Montserrat";
+  font-weight: 900;
+  font-size: 3.5rem;
+  line-height: 1.5;
+}
+
+h2 {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+h3 {
+  font-family: "Montserrat";
+  font-weight: 700;
+}
+
+p {
+  color: #8f8f8f;
+}
+
+/* navigation bar */
+.navbar {
+  padding: 0 0 4.5rem;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.nav-item {
+  padding: 0 5px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: "Montserrat";
+  font-weight: 300;
+}
+
+/* Download Buttons */
+.download-button {
+  margin: 5% 3% 5% 0;
+}
+
+/* Title image */
+.title-image {
+  width: 80%;
+  position: absolute;
+  right: 10%;
+}
+
+@media (max-width: 1028px) {
+  #title, #title1 {
+    text-align: center;
+  }
+
+  .title-image {
+    position: static;
+    transform: rotate(0);
+  }
+}
+
+/* Features */
+#features {
+  padding: 7% 10%;
+  background-color: #fff;
+  position: relative;
+}
+
+.feature-box {
+  text-align: center;
+  padding: 5%;
+}
+
+.icon {
+  color: #65c6e9;
+  margin-bottom: 1rem;
+}
+
+.icon:hover {
+  color:#6f9eaf;
+}
+
+/* Testimonials section */
+#testimonials {
+  text-align: center;
+  background-color: #6f9eaf;
+  color: #fff;
+}
+
+.carousel-item {
+  padding: 7% 10%;
+}
+
+.testimonial-image {
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+/* Press */
+#press {
+  background-color: #6f9eaf;
+  text-align: center;
+  padding-bottom: 3%;
+}
+
+.press-logo {
+  width: 15%;
+  margin: 20px 20px 50px;
+}
+
+/* principle Section */
+#principle {
+  padding: 100px;
+  text-align: center;
+}
+
+.principle-class {
+  padding: 3% 2%;
+}
+
+/* Call to  action */
+#cta {
+  padding: 7% 10%;
+  background-color: #6f9eaf;
+  color: #fff;
+  text-align: center;
+}
+
+.cta-heading {
+  font-family: "Montserrat";
+  font-weight: 900;
+  font-size: 3.5rem;
+  line-height: 1.5;
+}
+/* footer section */
+
+
+
+#footer {
+  padding: 7% 10%;
+  text-align: center;
+}
+.social {
+  margin: 20px 10px;
+}
+
+/* contact page */
+
+#contact {
+  padding: 7% 10%;
+  text-align: left;
+}
+
+/* about page */
+
+#about {
+  padding: 7% 10%;
+  text-align: left;
+}
+
+ /* all forms pages */
+
+ #form {
+  padding: 7% 10%;
+  text-align: left;
+ }
+
+ /* output page */
+
+ #message {
+  padding: 7% 10%;
+  text-align: left;
+ }

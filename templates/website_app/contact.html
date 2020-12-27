@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "website_app/base.html" %}
+{% block body_block %}
+{% load static %}
+<section id="contact">
+    <div >
+        <h2>Contact</h2>
+        <h3>Registered Address : </h3> 
+        <h5>{{ contact.name }}</h5>
+        <h5>{{ contact.address }}</h5>
+        <br>
+        <h3>Contact Number : </h3>
+        <h5>{{ contact.phone }}</h5>
+        <br>
+        <h3>E-Mail Address</h3>
+        <a href="mailto:{{ contact.email }}"> {{ contact.email }}</a>
+    </div>
+</section>
+    
+{% endblock %}

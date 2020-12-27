@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends "website_app/base.html" %}
+{% block body_block %}
+<section id="form">
+    <h3>Enter the details to place the order!</h3>
+    <form method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class='btn btn-primary' value='ORDER'>
+    </form>
+</section>
+
+
+{% endblock %}

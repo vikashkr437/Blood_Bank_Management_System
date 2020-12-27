@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% extends "website_app/base.html" %}
+{% block body_block %}
+{% load static %}
+<section id="bloodtable column-fluid">
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Blood Type</th>
+                    <th>Available Stocks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>A+</td>
+                    <td>{{ stocks.ap }}</td>
+                </tr>
+                <tr>
+                    <td>A-</td>
+                    <td>{{ stocks.an }}</td>
+                </tr>
+                <tr>
+                    <td>B+</td>
+                    <td>{{ stocks.bp }}</td>
+                </tr>
+                <tr>
+                    <td>B-</td>
+                    <td>{{ stocks.bn }}</td>
+                </tr>
+                <tr>
+                    <td>AB+</td>
+                    <td>{{ stocks.abp }}</td>
+                </tr>
+                <tr>
+                    <td>AB-</td>
+                    <td>{{ stocks.abn }}</td>
+                </tr>
+                <tr>
+                    <td>O+</td>
+                    <td>{{ stocks.op }}</td>
+                </tr>
+                <tr>
+                    <td>O-</td>
+                    <td>{{ stocks.on }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+{% endblock %}
