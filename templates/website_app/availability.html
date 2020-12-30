@@ -2,47 +2,49 @@
 {% extends "website_app/base.html" %}
 {% block body_block %}
 {% load static %}
-<section id="bloodtable column-fluid">
-    <div>
+<section id="bloodtable">
+    <div class="column-fluid">
+        <h2> Current Blood Availability : </h2>
+        <br/><br/>
         <table>
             <thead>
                 <tr>
-                    <th>Blood Type</th>
-                    <th>Available Stocks</th>
+                    <th><h4>Blood Type</h4></th>
+                    <th><h4> &nbsp; &nbsp; &nbsp; Available Stocks</h4></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>A+</td>
-                    <td>{{ stocks.ap }}</td>
+                    <td> <h6> A+</h6></td>
+                    <td> <h6> &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;{{ stocks.ap }} </h6> </td>
                 </tr>
                 <tr>
-                    <td>A-</td>
-                    <td>{{ stocks.an }}</td>
+                    <td><h6> A- </h6></td>
+                    <td><h6> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{ stocks.an }} </h6></td>
                 </tr>
                 <tr>
-                    <td>B+</td>
-                    <td>{{ stocks.bp }}</td>
+                    <td><h6> B+ </h6></td>
+                    <td><h6> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{ stocks.bp }} </h6></td>
                 </tr>
                 <tr>
-                    <td>B-</td>
-                    <td>{{ stocks.bn }}</td>
+                    <td><h6> B- </h6></td>
+                    <td><h6>&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;{{ stocks.bn }} </h6></td>
                 </tr>
                 <tr>
-                    <td>AB+</td>
-                    <td>{{ stocks.abp }}</td>
+                    <td><h6> AB+ </h6></td>
+                    <td><h6>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ stocks.abp }} </h6></td>
                 </tr>
                 <tr>
-                    <td>AB-</td>
-                    <td>{{ stocks.abn }}</td>
+                    <td><h6> AB- </h6></td>
+                    <td><h6> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{ stocks.abn }} </h6></td>
                 </tr>
                 <tr>
-                    <td>O+</td>
-                    <td>{{ stocks.op }}</td>
+                    <td><h6> O+ </h6></td>
+                    <td><h6> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{ stocks.op }} </h6></td>
                 </tr>
                 <tr>
-                    <td>O-</td>
-                    <td>{{ stocks.on }}</td>
+                    <td><h6> O-</h6></td>
+                    <td><h6> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{ stocks.on }} </h6></td>
                 </tr>
 
             </tbody>

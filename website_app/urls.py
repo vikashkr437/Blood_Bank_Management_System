@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^registerhospital/', views.registerhospital, name='registerhospital'),
     url(r'^output/',views.output, name='output'),
     url(r'^availability/',views.availability, name='availability'),
-    url(r'^order/',views.order, name='order'),
+    url(r'^order/',views.orderfun, name='order'),
 
 ]
 

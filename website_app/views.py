@@ -23,16 +23,28 @@ def contact(request):
 def output(request,message1="Thank you for visiting", message2=";)"):
     return render(request,'website_app/output.html',{'message1':message1, 'message2':message2})
 
+def is_none(value):
+    if value is None:
+        return 0
+    else :
+        return value
+
+def is_negetive(value):
+    if value < 0:
+        return 0
+    else :
+        return value
+
 def availability(request):
     stocks = {"ap":0,"an":3,"bp":0,"bn":0,"abp":0,"abn":0,"op":0,"on":0}
-    stocks['ap'] = blood.objects.filter(bld_type='a+'or'A+').aggregate(Sum('bld_qty'))['bld_qty__sum']
-    stocks['bp'] = blood.objects.filter(bld_type='b+'or'B+').aggregate(Sum('bld_qty'))['bld_qty__sum']
-    stocks['abp'] = blood.objects.filter(bld_type='ab+'or'AB+'or'Ab+'or'aB+').aggregate(Sum('bld_qty'))['bld_qty__sum']
-    stocks['op'] = blood.objects.filter(bld_type='o+'or'O+').aggregate(Sum('bld_qty'))['bld_qty__sum']
-    stocks['an'] = blood.objects.filter(bld_type='a-'or'A-').aggregate(Sum('bld_qty'))['bld_qty__sum']
-    stocks['bn'] = blood.objects.filter(bld_type='b-'or'B-').aggregate(Sum('bld_qty'))['bld_qty__sum']
-    stocks['abn'] = blood.objects.filter(bld_type='ab-'or'AB-'or'Ab-'or'aB-').aggregate(Sum('bld_qty'))['bld_qty__sum']
-    stocks['on'] = blood.objects.filter(bld_type='o-'or'O-').aggregate(Sum('bld_qty'))['bld_qty__sum']
+    stocks['ap'] = is_negetive(blood.objects.filter(bld_type='A+').aggregate(Sum('bld_qty'))['bld_qty__sum'] - is_none(order.objects.filter(bld_typ_req='A+').aggregate(Sum('quantity'))['quantity__sum']))
+    stocks['bp'] = is_negetive(blood.objects.filter(bld_type='B+').aggregate(Sum('bld_qty'))['bld_qty__sum'] - is_none(order.objects.filter(bld_typ_req='B+').aggregate(Sum('quantity'))['quantity__sum']))
+    stocks['abp'] = is_negetive(blood.objects.filter(bld_type='AB+').aggregate(Sum('bld_qty'))['bld_qty__sum'] - is_none(order.objects.filter(bld_typ_req='AB+').aggregate(Sum('quantity'))['quantity__sum']))
+    stocks['op'] = is_negetive(blood.objects.filter(bld_type='O+') .aggregate(Sum('bld_qty'))['bld_qty__sum'] - is_none(order.objects.filter(bld_typ_req='O+').aggregate(Sum('quantity'))['quantity__sum']))
+    stocks['an'] = is_negetive(blood.objects.filter(bld_type='A-').aggregate(Sum('bld_qty'))['bld_qty__sum'] - is_none(order.objects.filter(bld_typ_req='A-').aggregate(Sum('quantity'))['quantity__sum']))
+    stocks['bn'] = is_negetive(blood.objects.filter(bld_type='B-').aggregate(Sum('bld_qty'))['bld_qty__sum'] - is_none(order.objects.filter(bld_typ_req='B-').aggregate(Sum('quantity'))['quantity__sum']))
+    stocks['abn'] = is_negetive(blood.objects.filter(bld_type='AB-').aggregate(Sum('bld_qty'))['bld_qty__sum']- is_none(order.objects.filter(bld_typ_req='AB-').aggregate(Sum('quantity'))['quantity__sum']))
+    stocks['on'] = is_negetive(blood.objects.filter(bld_type='O-').aggregate(Sum('bld_qty'))['bld_qty__sum'] - is_none(order.objects.filter(bld_typ_req='O-').aggregate(Sum('quantity'))['quantity__sum']))
     return render(request,'website_app/availability.html', {'stocks':stocks})
 
 def registerdonor(request):
@@ -52,21 +64,21 @@ def registerdonor(request):
 
     return render(request,'website_app/registerdonor.html', {'form':form})
 
-def order(request):
+def orderfun(request):
     form = neworderform()
     if request.method == "POST":
         form = neworderform(request.POST)
 
         if form.is_valid():
-            bld_typ = form.cleaned_data['bld_typ_req'].upper()
+            btype = form.cleaned_data['bld_typ_req'].upper()
             req_qty = form.cleaned_data['quantity']
-            total_stock = blood.objects.filter(bld_typ=bld_typ).aggregate(Sum('bld_qty'))['bld_qty__sum']
-            stock_used = order.objects.filter(bld_typ_req=bld_typ).aggregate(Sum('quantity'))['quantity__sum']
+            total_stock = blood.objects.filter(bld_type=btype).aggregate(Sum('bld_qty'))['bld_qty__sum']
+            stock_used = is_none(order.objects.filter(bld_typ_req=btype).aggregate(Sum('quantity'))['quantity__sum'])
             remaining_stock = total_stock - stock_used
             if req_qty <= remaining_stock :
                 form.save(commit=True)
-                message1 = "Thank you for registering."
-                message2 = "Your registration is successfully completed."
+                message1 = "Thank you for ordering."
+                message2 = "Your order is successfully completed."
                 return output(request,message1,message2)
             else :
                 message1 = "Order could not be placed!"

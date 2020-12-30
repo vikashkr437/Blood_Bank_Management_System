@@ -46,7 +46,7 @@ class hospital(models.Model):
 
 
     def __str__(self):
-        return self.h_Name
+        return self.h_name
 
 class employee(models.Model):
     bb_id=models.ForeignKey(bloodbank, on_delete=models.CASCADE)
@@ -59,7 +59,7 @@ class employee(models.Model):
 
 
     def __str__(self):
-        return self.employee_Name
+        return self.e_name
 
 
 class order(models.Model):
@@ -70,5 +70,5 @@ class order(models.Model):
     recipient_name=models.CharField(max_length=20)
 
     def __str__(self):
-        return self.date
+        return self.recipient_name
 
