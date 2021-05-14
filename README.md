@@ -6,4 +6,4 @@ This is a Web based application for a Blood Bank. It can register new users who 
 
 Users can also check the current availability of blood from  a separate dashboard. 
 
-**Django HTML CSS JavaScript Sqlite**
+**Django  HTML  CSS  Sqlite**
